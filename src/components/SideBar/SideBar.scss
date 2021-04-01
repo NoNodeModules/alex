@@ -1,0 +1,181 @@
+@import '../../styles/mixins.scss';
+$sideBarWidth: 350px;
+$sideBarPadding: 45px;
+
+.sidebar-background {
+    margin-top: -22px;
+    position: fixed;
+    width: 0;
+    height: 150%;
+    right: 0;
+    background: rgba(0, 0, 0, .5);
+    transition: all ease-in-out .6s;
+    z-index: 50;
+}
+
+.sidebar-background_active {
+    transition: all ease-in-out .57s;
+    width: 100%;
+}
+ 
+.sidebar {
+    box-sizing: border-box;
+    position: fixed;
+    width: $sideBarWidth;
+    height: 150%;
+    background: #FFF;
+    right: -$sideBarWidth;
+    box-shadow: -6px 0px 12px transparent;
+    padding: 0 $sideBarPadding 0 $sideBarPadding;
+    transition: all ease-in-out .57s;
+}
+
+.sidebar_active {
+    transition: all ease-in-out .57s;
+    box-shadow: -6px 0px 12px #FFF;
+    right: 0;
+}
+
+.sidebar__container {
+    position: absolute;
+    margin-left: $sideBarWidth;
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: $sideBarPadding * 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all linear 2s;
+}
+
+.sidebar__container_active {
+    margin-left: 0;
+    transition: all ease-in-out .85s;
+}
+
+.sidebar__header {
+    height: 90px;
+    padding-top: 22px;
+    display: flex;
+    align-items: center;
+    div {
+        display: flex;
+        margin: auto;
+        &:nth-child(1) {
+            @include sub-title(#000);
+            padding-bottom: 8px;
+        }
+
+    }
+}
+
+.sidebar__basket {
+    transition: all linear .17s;
+    transform: scale(1);
+    &:hover {
+        transition: all linear .17s;
+        transform: scale(1.2);
+    }
+}
+
+.sidebar__menu {
+    transition: all linear .17s;
+    transform: scale(1);
+    &:hover {
+        transition: all linear .17s;
+        transform: scale(1.2);
+    }
+}
+
+.sidebar__content {
+    padding-top: 32px;
+}
+@mixin sidebarContentLi($fontSize) {
+    padding-bottom: 16px;
+    font-size: $fontSize;
+}
+@mixin underlineLinks($state) {
+    @if($state == 1) {
+        transform: scale(1);
+        transition: all 0.435s ease-out; 
+        &:hover {
+            transition: transform 0.435s ease-out; 
+            transform: scale(1.2);
+        } 
+    }
+        
+    a {
+        position: relative;
+        color: #000;
+        &::after {
+            display: block;
+            position: absolute;
+            left: 0; 
+            width: 0;
+            height: 2px; 
+            background-color: #000; 
+            content: "";
+            transition: width 0.435s ease-out; 
+        }
+        &:hover::after {
+            width: 100%;
+        }   
+    }
+}
+$paddingBetwenContent: 40px;
+.sidebar__links {
+    li {
+        text-transform: uppercase;
+        @include sidebarContentLi(26px);
+        font-weight: bold;
+        @include underlineLinks(1);
+    }
+}
+
+.sidebar__information {
+    padding-top: $paddingBetwenContent;
+    li {
+        @include sidebarContentLi(20px);
+        font-weight: normal;
+        @include underlineLinks(2);
+    }
+}
+
+.sidebar__messengers {
+    padding-top: $paddingBetwenContent;
+    li {
+        transition: transform linear .2s;
+        display: inline-block;
+        &:nth-child(n + 1) {
+            padding-right: 16px;
+        }
+        &:hover {
+            transition: transform linear .2s;
+            transform: scale(1.2);
+        }
+    }
+}   
+
+@media screen and (max-width: 524px) {
+    $sideBarWidth: 100%;
+
+    .sidebar-background {
+        margin-top: 0px;
+    }
+
+    .sidebar__header {
+        justify-content: flex-start;
+        div {
+            margin: auto 0;
+            &:nth-child(n + 1) {
+                padding-right: 32px;
+            }
+        }
+    }
+
+    .sidebar {
+        position: absolute;
+        width: $sideBarWidth;
+        padding: 0 20% 0 20%;
+    }
+}

@@ -1,0 +1,81 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    user-select: none;
+}
+::-webkit-scrollbar { 
+    width: 4.8px;
+    height: 50px;
+}
+::-webkit-scrollbar-button {  background-color: #666; }
+::-webkit-scrollbar-track {  background-color: #999;}
+::-webkit-scrollbar-track-piece { background-color: #999;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
+::-webkit-scrollbar-corner { background-color: #999;}
+::-webkit-resizer { background-color: #666;}
+
+p,a,h1,h2,h3,h4,h5,ul,li,button,input {
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+    text-decoration: none;
+    outline: none;
+    font-family: 'Futura PT';
+    border: none;
+    background: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1348px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Futura PT';
+    src: url('./fonts/FuturaPTLight.otf');
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Futura PT';
+    src: url('./fonts/FuturaPT-Book.eot'),
+        url('./fonts/FuturaPT-Book.woff') format('woff'),
+        url('./fonts/FuturaPT-Book.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Futura PT';
+    src: url('./fonts/FuturaPTMedium.otf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Futura PT';
+    src: url('./fonts/FuturaPTDemi.otf');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Futura PT';
+    src: url('./fonts/FuturaPTBold.otf');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Futura PT';
+    src: url('./fonts/FuturaPTHeavy.otf');
+    font-weight: 900;
+}
+
+@media screen and (max-width: 560px) {
+    .container {
+        padding: 0 16px;
+    }
+}

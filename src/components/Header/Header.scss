@@ -1,0 +1,118 @@
+.header {
+    position: absolute;
+    width: 100%;
+    height: 90px;
+    padding-top: 22px;
+    .container {
+        height: inherit;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+    }   
+}
+
+.header__logo {
+    cursor: pointer;
+}
+
+.header__search {
+    $inputPadding: 64px;
+    position: relative;
+    max-width: 400px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 32px;
+    input {
+        transition: all linear .18s;
+        box-shadow: 0px 4px 10px transparent;
+        height: 100%;
+        width: 100%;
+        background: #FFF;
+        border-radius:  15.5px;
+        box-sizing: border-box;
+        padding: 0 $inputPadding 4px $inputPadding;
+        font-size: 18px;
+        font-family: 'Futura PT';
+        font-weight: 500;
+        &:focus {
+            transition: all linear .2s;
+            border-radius:  15.5px 15.5px 0 0;
+            box-shadow: 0px 4px 10px #FFF;
+        }
+        &:hover {
+            transition: box-shadow linear .18s;
+            box-shadow: 0px 4px 10px #FFF;
+        }
+    }
+    &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        margin-top: 5px;
+        left: $inputPadding / 3.2;
+        width: 22px;
+        height: 22px;
+        background: url('../../assets/loupe.svg') center no-repeat;
+        background-size: cover;
+        vertical-align: middle;
+    }
+}
+
+.header__options { 
+    transition: all linear .35s;
+    ul {
+        display: flex;
+    }
+    li {
+        display: flex;
+        align-items: center;
+        transform: scale(1);
+        transition: transform linear .1s;
+        img {
+            vertical-align: middle;
+            height: 30px;
+            width: 31px;
+        }
+        &:nth-child(1) {
+            margin-right: 36px;
+        }
+        &:hover {
+            transition: transform linear .1s; 
+            transform: scale(1.125);
+        }
+    }
+}
+
+.header__options_active {
+    transition: all linear .35s;
+    opacity: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .header__logo {
+        padding-right: 16px;
+        img {
+            width: 120px;
+        }
+    }
+
+    .header__options {
+        padding-left: 16px;
+    }
+}
+
+@media screen and (max-width: 524px) {
+    .header {
+        padding-top: 0px;
+    }
+    .header__logo {
+        display: none;
+    }
+    .header__options {
+        padding-left: 24px;
+        .header__basket {
+            display: none;
+        }
+    }
+}

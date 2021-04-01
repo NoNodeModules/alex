@@ -1,0 +1,29 @@
+@import '../../styles/mixins.scss';
+
+.streetster-descrip {
+    width: 100%;
+    background: #F2F2F2;
+    min-height: 275px;
+    box-sizing: border-box;
+    padding: 24px 0;
+    display: flex;
+    .container {
+        margin: auto
+    }
+}
+
+.streetster-descrip {
+    span {
+        @include sub-title(#000);
+        font-weight: 700;
+    }
+
+    p {
+        @include product-descript(#000);
+        letter-spacing: 0.6px;
+        font-size: 22px;
+        &:nth-child(2) {
+            margin-top: 30px;
+        }
+    }
+}
